@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 import { BsFillSendFill } from "react-icons/bs";
 import { AiOutlineDelete } from "react-icons/ai";
-import { datachat } from "../types/typechat";
+import { datachat, datat, dicchat, sentences } from "../types/typechat";
 import RowChat from "../components/chat";
 import axios from "axios";
-import { ChatCompletionRequestMessage } from 'openai'
+
 
 
 type Props = {
@@ -13,18 +13,18 @@ type Props = {
 
 const apiURL = process.env.URL_APP;
 
-function Chatbot(props: Props) {
+function Dictionary(props: Props) {
 
   const [chatData, setChatData] = useState<datachat[]>([]);
-  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
+  const [messages, setMessages] = useState<string>('')
   const chatcontent = useRef<HTMLInputElement>(null);
   const [isLoadingAnswer, setIsLoadingAnswer] = useState(false)
-
+  const [dataDic, setDataDic] = useState<sentences[]>([])
 
 
 
   const getData = async () => {
-    await axios.get("http://localhost:5048/TestController")
+    await axios.get(`${apiURL}/TestController`)
       .then((response) => {
         console.clear()
         setChatData(response.data)
@@ -36,7 +36,7 @@ function Chatbot(props: Props) {
     console.log(urlpost)
     await axios.post(urlpost)
       .then((response) => {
-        console.log(response.data);
+
         const newc: datachat = {
           inde: 1,
           userchat: Uchat,
@@ -52,37 +52,28 @@ function Chatbot(props: Props) {
 
   }
   useEffect(() => {
-    getData();
+    // getData();
   }, []);
-  const sendMessage = async (messages: ChatCompletionRequestMessage[]) => {
+
+  const sendMessage = async (messages: string) => {
     try {
-      const response = await fetch('/api/createMessage', {
+      const response = await fetch('/api/getDictionary', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/string',
         },
-        body: JSON.stringify({ messages }),
+        body:  messages ,
       })
+
       return await response.json()
     } catch (error) {
       console.log(error)
     }
   }
-  const handleClick = () => {
+  const handleClick = async () => {
+    
     const rep = chatcontent.current?.value?.toString() || '';
-    const newc: datachat = {
-      inde: 1,
-      userchat: rep,
-      botchat: 'Loading .............'
-    }
-    const newdata = [...chatData, newc]
-    setChatData(newdata);
-    console.log(rep);
-    let reply = addMessage(rep);
-    reply.then(result => {
-      postData(rep, result.content)
-    })
-
+    let reply : datat = await sendMessage(rep);
   }
   const handleDelete = async () => {
     let urlpost = "http://localhost:5048/delete";
@@ -91,39 +82,36 @@ function Chatbot(props: Props) {
     const trash: datachat[] = []
     setChatData(trash);
   }
-  const addMessage = async (content: string) => {
-    setIsLoadingAnswer(true)
-    try {
-      const newMessage: ChatCompletionRequestMessage = {
-        role: 'user',
-        content,
-      }
-      const newMessages = [...messages, newMessage]
-
-      // Add the user message to the state so we can see it immediately
-      setMessages(newMessages)
-
-      const { data } = await sendMessage(newMessages)
-      const reply = data.choices[0].message
-      console.log(reply)
-      // Add the assistant message to the state
-      setMessages([...newMessages, reply])
-      return reply;
-    } catch (error) {
-      // Show error when something goes wrong
-
-    } finally {
-      setIsLoadingAnswer(false)
-    }
-  }
   return (
     <div className="h-screen bg-[#444654] ">
       <div>
       </div>
       <div className="bg-[#444654] ">
-        {chatData.map((item, index) => {
-          return <RowChat item={item} key={index} />;
-        })}
+      <div className="w-screen w-1/1 ">
+            <div className="w-screen">
+                <div className="bg-[#343541]  flex justify-center">
+                    {props.item.userchat ? (
+                        <div className="w-1/2 mt-[26px] text-[#D1D5DB] mb-[20px]">
+                                {props.item.userchat}
+                        </div>
+                    ): (
+                        <div>
+                        </div>
+                    )}
+                </div>
+                <div className="flex justify-center bg-[#444654]">
+                    {props.item.botchat ? (
+                        <div className="w-1/2 mt-[26px] text-[#D1D5DB] mb-[20px]">
+                          
+                        </div>
+                    ): (
+                        <div className="w-1/2 mt-[26px] text-[#D1D5DB] mb-[20px]">
+                          None
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
       </div>
       <div className=" h-[80px] bg-[#343541] w-screen ">
 
@@ -148,4 +136,4 @@ function Chatbot(props: Props) {
   );
 }
 
-export default Chatbot;
+export default Dictionary;
