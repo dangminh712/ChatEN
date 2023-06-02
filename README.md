@@ -48,8 +48,8 @@ Website học tập tiếng anh giúp bạn cải thiện trình độ tiếng a
 video, quizz,... do Nguyễn Đăng Minh - Sinh viên trường Khoa Học Tự Nhiên HCMUS phát triển
 ## Cài đặt
 ### Front-end :
-#### Vào "\ChatEN\ChatEN> npm install" để cài đặt thư viện
-#### Vào "\ChatEN\ChatEN> npm run dev" để chạy(lưu ý: cài đặt npm và nextJS trước khi chạy)
+#### Vào "\ChatEN\ChatEN>" `npm install` để cài đặt thư viện
+#### Vào "\ChatEN\ChatEN>" `npm run dev` để chạy(lưu ý: cài đặt npm và nextJS trước khi chạy)
 ### Back-end :
 #### Mở ChatEN-API bằng Visual-Studio và run (Lưu ý cài đặt đầy đủ các thư viện của ASP.NET)
 ## Sử dụng
