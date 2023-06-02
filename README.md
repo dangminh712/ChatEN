@@ -38,9 +38,9 @@ ChatEN is an English learning website that helps you improve your English profic
 
 ## Contact
 
-Nguyễn Đăng Minh
-Email: dangminh7122002@gmail.com
-Phone: 0356655409
+### Nguyễn Đăng Minh
+### Email: dangminh7122002@gmail.com
+### Phone: 0356655409
 
 # ChatEN (Tiếng Việt)
 
@@ -73,9 +73,9 @@ video, quizz,... do Nguyễn Đăng Minh - Sinh viên trường Khoa Học Tự 
 
 ## Liên hệ
 
-Nguyễn Đăng Minh
-Mail: dangminh7122002@gmail.com
-SĐT : 0356655409
+### Nguyễn Đăng Minh
+### Mail: dangminh7122002@gmail.com
+### SĐT : 0356655409
 
 
 
