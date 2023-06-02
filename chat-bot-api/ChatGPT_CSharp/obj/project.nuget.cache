@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4pz3kptOSWAQ0FQonhWaNNpgeHD1Hn4kY+SurvpL5DAUyuXPQJnpkKIcfJXMO8OpMIJjI222+sW6Y2DFdW9pQQ==",
+  "dgSpecHash": "V9iG7jsIJ8nNDQhVqZGGuOk2DqCrV9A9BkHsB5nm8NgjvdldoFkqUM5OdgMvc1P9lzSTlTJ9cgQSWYrMoXeZ7A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dangm\\Downloads\\ChatGPT_CSharp\\ChatGPT_CSharp\\ChatGPT_CSharp.csproj",
+  "projectFilePath": "C:\\Users\\dangm\\OneDrive\\Documents\\GitHub\\ChatEN\\chat-bot-api\\ChatGPT_CSharp\\ChatGPT_CSharp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dangm\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\dangm\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

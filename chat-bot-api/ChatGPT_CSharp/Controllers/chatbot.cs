@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Configuration;
-using System.Data.SqlClient;
+﻿
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using System.Data;
-using Newtonsoft.Json;
-using ChatGPT_CSharp.Models;
+
 using ChatGPT_CSharp.Connecting;
+using System.Data.SqlClient;
 
 namespace MyWebApplication.Controllers
 {
@@ -23,7 +16,7 @@ namespace MyWebApplication.Controllers
         {
             try
             {
-                condb con = new condb();
+                await using SqlConnection sqlConnection = new SqlConnection();
                 var messages = con.insertData(userchat,botchat);
                 return Ok(messages);
             }

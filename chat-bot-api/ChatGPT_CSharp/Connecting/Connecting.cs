@@ -1,26 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Configuration;
-using System.Data.SqlClient;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
+﻿using System.Data.SqlClient;
 using System.Data;
 using Newtonsoft.Json;
 using ChatGPT_CSharp.Models;
-using System.Runtime.InteropServices;
-using System.Runtime.CompilerServices;
+
 
 namespace ChatGPT_CSharp.Connecting
 {
-    public class condb
+    public class Connecting
     {
-        string Connection = "Data Source=LAPTOP\\MAYAO; Initial Catalog=chatbot; Integrated Security=True; Connect Timeout=10000;";
+     
 
+        private readonly IConfiguration _configuration;
+
+        public Connecting(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
         public List<chatbotdata> getData(string req)
         {
-            SqlConnection DataConnection = new SqlConnection(Connection);
+            SqlConnection DataConnection = new SqlConnection(_configuration.GetConnectionString("Database"));
+            string hi = (_configuration.GetConnectionString("Database"));
             SqlCommand DataCommand = new SqlCommand(req, DataConnection);
             DataCommand.Connection.Open();
             DataTable dt = new DataTable();
@@ -34,7 +33,7 @@ namespace ChatGPT_CSharp.Connecting
         }
         public bool insertData(string userbot,string chatbot)
         {
-            SqlConnection DataConnection = new SqlConnection(Connection);
+            SqlConnection DataConnection = new SqlConnection(_configuration.GetConnectionString("Database"));
             string Sql = "exec insertData "+userbot + ","+chatbot;
             SqlCommand DataCommand = new SqlCommand(Sql, DataConnection);
             DataCommand.Connection.Open();
@@ -45,7 +44,7 @@ namespace ChatGPT_CSharp.Connecting
         }
         public bool deleteData()
         {
-            SqlConnection DataConnection = new SqlConnection(Connection);
+            SqlConnection DataConnection = new SqlConnection(_configuration.GetConnectionString("Database"));
             string Sql = "delete from chatbot";
             SqlCommand DataCommand = new SqlCommand(Sql, DataConnection);
             DataCommand.Connection.Open();

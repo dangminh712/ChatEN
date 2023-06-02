@@ -21,12 +21,9 @@ namespace MyWebApplication.Controllers
         [Route("TestController")]
         public ActionResult Index()
         {
-            string Command;
-            DataTable dt;
-            SqlDataAdapter da;
             try
             {
-                condb con = new condb();
+                Connecting con = new Connecting();
                 var messages = con.getData("select * from chatbot");
 
                 return Ok(messages);

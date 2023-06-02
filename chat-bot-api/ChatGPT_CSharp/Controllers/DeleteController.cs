@@ -23,7 +23,7 @@ namespace MyWebApplication.Controllers
         {
             try
             {
-                condb con = new condb();
+                Connecting con = new Connecting ();
                 var messages = con.deleteData();
                 return Ok(messages);
             }

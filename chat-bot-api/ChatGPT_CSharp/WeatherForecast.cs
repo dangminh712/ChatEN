@@ -11,7 +11,7 @@ namespace ChatGPT_CSharp
         }
         public IConfiguration Index()
         {
-            string connectionstring = configuration.GetConnectionString("DefaultConnectionStrings");
+            string connectionstring = configuration.GetConnectionString("Database");
             SqlConnection connection = new SqlConnection(connectionstring);
             connection.Open();
             SqlCommand command = new SqlCommand("select * from chatbot", connection);
