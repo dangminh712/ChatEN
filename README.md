@@ -18,6 +18,7 @@ ChatEN is an English learning website that helps you improve your English profic
 ![Screenshot 2023-06-02 163323](https://github.com/dangminh71220002/ChatEN/assets/83014500/406ec1d2-3ab5-47d1-a754-6eaf7ab1989a)
 
 ### Home
+![Screenshot 2023-06-02 220429](https://github.com/dangminh71220002/ChatEN/assets/83014500/dbdd74c5-f16a-4fc9-80ae-a5d6809c7431)
 
 ### Chat
 ![Screenshot 2023-06-02 163434](https://github.com/dangminh71220002/ChatEN/assets/83014500/987c8d47-35ba-450d-99d4-e88b385782b7)
