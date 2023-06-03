@@ -18,6 +18,7 @@ ChatEN is an English learning website that helps you improve your English profic
 ![Screenshot 2023-06-02 163323](https://github.com/dangminh71220002/ChatEN/assets/83014500/406ec1d2-3ab5-47d1-a754-6eaf7ab1989a)
 
 ### Home
+![Screenshot 2023-06-02 220429](https://github.com/dangminh71220002/ChatEN/assets/83014500/dbdd74c5-f16a-4fc9-80ae-a5d6809c7431)
 
 ### Chat
 ![Screenshot 2023-06-02 163434](https://github.com/dangminh71220002/ChatEN/assets/83014500/987c8d47-35ba-450d-99d4-e88b385782b7)
@@ -37,9 +38,9 @@ ChatEN is an English learning website that helps you improve your English profic
 
 ## Contact
 
-Nguyễn Đăng Minh
-Email: dangminh7122002@gmail.com
-Phone: 0356655409
+### Nguyễn Đăng Minh
+### Email: dangminh7122002@gmail.com
+### Phone: 0356655409
 
 # ChatEN (Tiếng Việt)
 
@@ -47,8 +48,8 @@ Website học tập tiếng anh giúp bạn cải thiện trình độ tiếng a
 video, quizz,... do Nguyễn Đăng Minh - Sinh viên trường Khoa Học Tự Nhiên HCMUS phát triển
 ## Cài đặt
 ### Front-end :
-#### Vào "\ChatEN\ChatEN> npm install" để cài đặt thư viện
-#### Vào "\ChatEN\ChatEN> npm run dev" để chạy(lưu ý: cài đặt npm và nextJS trước khi chạy)
+#### Vào "\ChatEN\ChatEN>" `npm install` để cài đặt thư viện
+#### Vào "\ChatEN\ChatEN>" `npm run dev` để chạy(lưu ý: cài đặt npm và nextJS trước khi chạy)
 ### Back-end :
 #### Mở ChatEN-API bằng Visual-Studio và run (Lưu ý cài đặt đầy đủ các thư viện của ASP.NET)
 ## Sử dụng
@@ -72,9 +73,9 @@ video, quizz,... do Nguyễn Đăng Minh - Sinh viên trường Khoa Học Tự 
 
 ## Liên hệ
 
-Nguyễn Đăng Minh
-Mail: dangminh7122002@gmail.com
-SĐT : 0356655409
+### Nguyễn Đăng Minh
+### Mail: dangminh7122002@gmail.com
+### SĐT : 0356655409
 
 
 
