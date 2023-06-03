@@ -85,7 +85,7 @@ function SpeechToText(this: any) {
   return (
     <div className='h-[90vh] w-[100vw] bg-white'>
       <div className='flex justify-end pt-[30px]'>
-        <select className=" bg-[#182025] rounded-[10px] mr-[40px]" onChange={e => setValueSelect(() => e.target.value)}>
+        <select title='select'className=" bg-[#182025] rounded-[10px] mr-[40px]" onChange={e => setValueSelect(() => e.target.value)}>
           <option value="10" defaultChecked>10 từ vựng</option>
           <option value="20">20 từ vựng</option>
           <option value="30">30 từ vựng</option>
@@ -93,11 +93,11 @@ function SpeechToText(this: any) {
         </select>
       </div>
       <div className='relative flex justify-center h-[60vh] items-center'>
-        <button className='absolute top-[13%] ml-[500px]'
+        <button title='submit' className='absolute top-[13%] ml-[500px]'
           onClick={handleStar}
         ><AiFillStar className={`h-[30px] w-[30px] ${favourite?.some(item => item.wordID === data?.[indexWord]?.Wordid) ? "text-[#fcfc3a]" : "hover:text-[#aeae40]"}`} />
         </button>
-        <button onClick={updateActive} className='h-[50vh] w-[80vh] rounded-[30px]'>
+        <button title='submit' onClick={updateActive} className='h-[50vh] w-[80vh] rounded-[30px]'>
           <div key={data?.[indexWord]?.Wordid} className={`transition duration-1000 h-[50vh] w-[80vh] rounded-[30px] ${isActive ? 'bg-[#6b6be0]' : 'bg-[gray]'}`}>
             {
               isActive === true ? (
@@ -143,9 +143,9 @@ function SpeechToText(this: any) {
         </button>
       </div>
       <div className='flex justify-between w-[80vh] m-auto '>
-        <button onClick={handlePrev}><BiSkipPreviousCircle className='mt-[10px] text-[40px] text-[gray] ml-[20px]' /></button>
-        <button onClick={handlePlay}><AiFillSound className='text-[35px] mt-[15px] text-[gray]' /></button>
-        <button onClick={handleNext}><BiSkipNextCircle className='mt-[10px] text-[40px] text-[gray] mr-[20px]' /></button>
+        <button title='voice' onClick={handlePrev}><BiSkipPreviousCircle className='mt-[10px] text-[40px] text-[gray] ml-[20px]' /></button>
+        <button title='voice2' onClick={handlePlay}><AiFillSound className='text-[35px] mt-[15px] text-[gray]' /></button>
+        <button title='voice3' onClick={handleNext}><BiSkipNextCircle className='mt-[10px] text-[40px] text-[gray] mr-[20px]' /></button>
       </div>
     </div>
   );

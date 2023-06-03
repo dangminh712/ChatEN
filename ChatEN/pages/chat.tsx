@@ -131,9 +131,9 @@ function Chatbot(props: Props) {
 
         <div className="flex justify-center w-screen w-1/1 fixed bottom-0 rounded-[5px] ">
           <div className="bg-[#444654]  w-1/2  flex relative justify-end items-center rounded-[5px] border-white border-[2px] ">
-            <button className="flex justify-center items-center w-[30px] h-[30px] hover:bg-slate-900 rounded" onClick={handleDelete}><AiOutlineDelete className="text-[30px]" /></button>
+            <button title="submit" className="flex justify-center items-center w-[30px] h-[30px] hover:bg-slate-900 rounded" onClick={handleDelete}><AiOutlineDelete className="text-[30px]" /></button>
             
-            <textarea
+            <textarea title="submit"
               className="bg-[#444654] w-full border-[2px] rounded-[5px]"
               id="text" 
               ref={chatcontent}
@@ -143,7 +143,7 @@ function Chatbot(props: Props) {
               style={{ resize: 'none',  minHeight: '50px',
               maxHeight: '300px', overflow: 'auto'}}
             />
-            <button className="absolute flex justify-center items-center mr-5  hover:bg-slate-900 h-7 w-7 rounded hover:text-[#54ade8] " onClick={handleClick} >
+            <button title="submit" className="absolute flex justify-center items-center mr-5  hover:bg-slate-900 h-7 w-7 rounded hover:text-[#54ade8] " onClick={handleClick} >
               <BsFillSendFill className="hover:text-[#54ade8]"/>
             </button>
 

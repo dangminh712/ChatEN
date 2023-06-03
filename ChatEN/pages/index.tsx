@@ -14,80 +14,68 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main} >
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.tsx</code>
-          </p>
-          <div>
-            
+      <main  >
+        <div className='min-h-[90vh] bg-[#F7F8FA]'>
+          <div className='text-[black] w-[80vw] container  m-auto p-[50px]'>
+            <h1 className='text-[38px] font-[700] font-mono'>ChatEN</h1>
+            <h2 className='text-[20px] font-[500] font-mono'> Unlock the power of English and embark on a journey of language mastery.</h2>
+            <div className="grid grid-cols-3 gap-4 mt-[20px]">
+              <a href= '/' className='h-[25vh] m-[5px] rounded-[20px] my-[30px] bg-[#FFFFFF] border-[1px] border-[#b2b0b0] shadow-md'>
+                <div className='flex items-center h-[25vh]'>
+                <img title='img' src='https://cdn-icons-png.flaticon.com/512/1698/1698535.png' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] '>
+                    
+                    </img>
+                  <div className='flex self-start my-[2.5vh] mx-[4px]'>
+                    <div>
+                    <p className='text-[18px] font-[600]'> Text Chat </p>
+                    <p className='text-[13px] ml-[5px]'>Engage in interactive conversations with our intelligent chatbot.  </p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <a href= '/voice' className='h-[25vh] m-[5px] rounded-[20px] my-[30px] bg-[#FFFFFF] border-[1px] border-[#b2b0b0] shadow-md'>
+                <div className='flex items-center h-[25vh]'>
+                <img title='img' src='/voice.jpg' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] '>
+                    
+                    </img>
+                  <div className='flex self-start my-[2.5vh] mx-[4px]'>
+                    <div>
+                    <p className='text-[18px] font-[600]'>Voice Chat with Bot </p>
+                    <p className='text-[13px] ml-[5px]'>Language learning to the next level by having voice-based </p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <a href= '/searchword' className='h-[25vh] m-[5px] rounded-[20px] my-[30px] bg-[#FFFFFF] border-[1px] border-[#b2b0b0] shadow-md'>
+                <div className='flex items-center h-[25vh]'>
+                  <img title='img' src='https://cdn-icons-png.flaticon.com/512/1698/1698535.png' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] '>
+                    
+                  </img>
+                  <div className='flex self-start my-[2.5vh] mx-[4px]'>
+                    <div>
+                    <p className='text-[18px] font-[600]'> Sentence Word And Video Search </p>
+                    <p className='text-[12px] ml-[5px]'>Discover words in sentences with our word search tool</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <a href= '/flipvocab' className='h-[25vh] m-[5px] rounded-[20px] my-[30px] bg-[#FFFFFF] border-[1px] border-[#b2b0b0] shadow-md'>
+                <div className='flex items-center h-[25vh]'>
+                  <img title='sg' src='https://images.squarespace-cdn.com/content/v1/5d577d5ad3fea90001736e05/1618901038734-D9X7HTDS83C9QT6ILWRG/03-VOCAB-MATCH-B.jpg?format=1500w' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] '>
+                  </img>
+                  <div className='flex self-start my-[2.5vh] mx-[4px]'>
+                    <div>
+                    <p className='text-[18px] font-[600]'> FlipVocab </p>
+                    <p className='text-[13px] ml-[5px]'> Master vocabulary through interactive flashcards. </p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+             
+
+            </div>
           </div>
         </div>
-
-        <div className={styles.center}>
-   
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-            Voice chat <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Chat <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-            Grammar Check <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Writting <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-       
       </main>
     </>
   )
