@@ -1,7 +1,8 @@
 export type datachat = {
     inde: number,
     userchat: string,
-    botchat: string
+    botchat: string,
+    own:string,
 }
 export type dicchat = {
     inde: number,

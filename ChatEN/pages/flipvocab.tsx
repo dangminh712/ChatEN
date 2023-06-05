@@ -18,15 +18,15 @@ function SpeechToText(this: any) {
     SetIsActive(!isActive)
   }
   const getFavourite = async() =>{
-    await axios.get(`${urlApi}Quizz?ID=1`).then((result) => {
+    await axios.get(`${urlApi}Quizz?ID=${sessionStorage.getItem('Login')}`).then((result) => {
       setFavourite(() => result.data)
     })
   }
   const deleteFavourite = async () => {
-    await axios.post(`https://localhost:44335/api/Vocabulary/DeleteInFavorite?own=${1}&wordid=${data?.[indexWord]?.Wordid}`).then(()=>{getFavourite()})
+    await axios.post(`${urlApi}Vocabulary/DeleteInFavorite?own=${sessionStorage.getItem('Login')}&wordid=${data?.[indexWord]?.Wordid}`).then(()=>{getFavourite()})
   }
   const addFavourite = async () => {
-    await axios.post(`https://localhost:44335/api/Vocabulary/AddInFavorite?own=${1}&wordid=${data?.[indexWord]?.Wordid}`).then(()=>{getFavourite()})
+    await axios.post(`${urlApi}Vocabulary/AddInFavorite?own=${sessionStorage.getItem('Login')}&wordid=${data?.[indexWord]?.Wordid}`).then(()=>{getFavourite()})
   }
   const meanWord = async (index: number) => {
     await axios.get(`https://api.tracau.vn/${process.env.DIC_API_KEY}/s/'${data[index]?.Word}'/en`).then((result) => {
@@ -51,6 +51,10 @@ function SpeechToText(this: any) {
   };
 
   const handleStar = async () => {
+    let login = sessionStorage.getItem('Login')
+    if(login ===undefined||login==='false'||login===null) {
+      window.location.href='/login'
+    };
     await favourite.some(item => item.wordID === data?.[indexWord]?.Wordid) ? deleteFavourite() : addFavourite()
   
     setValueSelect(()=>valueSelect)
@@ -63,6 +67,13 @@ function SpeechToText(this: any) {
     utterance.voice = voice || null;
     synth.speak(utterance);
   };
+  const handleFavo = (value:string)=>{
+    let login = sessionStorage.getItem('Login')
+    if((login ===undefined||login==='false'||login===null)&&value==='favourite') {
+      window.location.href='/login'
+    };
+    setValueSelect(() => value)
+  }
   useEffect(() => {
     const getWord = async () => {
       if (valueSelect != 'favourite') {
@@ -71,12 +82,12 @@ function SpeechToText(this: any) {
         })
       }
       else{
-        await axios.get(`${urlApi}Vocabulary/Favourite?own=1`).then((result) => {
+        await axios.get(`${urlApi}Vocabulary/Favourite?own=${sessionStorage.getItem("Login")}`).then((result) => {
           getData(() => result.data)
         })
       }
 
-      await axios.get(`${urlApi}Quizz?ID=1`).then((result) => {
+      await axios.get(`${urlApi}Quizz?ID=${sessionStorage.getItem('Login')}`).then((result) => {
         setFavourite(() => result.data)
       })
     }
@@ -85,7 +96,7 @@ function SpeechToText(this: any) {
   return (
     <div className='h-[90vh] w-[100vw] bg-white'>
       <div className='flex justify-end pt-[30px]'>
-        <select title='select'className=" bg-[#182025] rounded-[10px] mr-[40px]" onChange={e => setValueSelect(() => e.target.value)}>
+        <select title='select'className=" bg-[#182025] rounded-[10px] mr-[40px]" onChange={e => handleFavo(e.target.value)}>
           <option value="10" defaultChecked>10 từ vựng</option>
           <option value="20">20 từ vựng</option>
           <option value="30">30 từ vựng</option>

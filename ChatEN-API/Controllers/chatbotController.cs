@@ -18,19 +18,19 @@ namespace ChatEN.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get(string user)
         {
             try
             {
                 await using SqlConnection sqlConnection = _connectionFactory.CreateConnection();
-                string queryString = "select * from chatbot";
-                var result = await sqlConnection.QueryAsync<chatbotdata>(queryString);
+                string queryString = "select * from chatbot where own = @USER";
+                var result = await sqlConnection.QueryAsync<chatbotdata>(queryString, new {USER = user});
                 if (result == null) return NotFound();
                 return Ok(result);
             }
-            catch (Exception ex)
+            catch 
             {
-                return BadRequest(ex.Message);
+                return Ok("false");
             }
 
         }
@@ -42,8 +42,24 @@ namespace ChatEN.Controllers
                 await using SqlConnection sqlConnection = _connectionFactory.CreateConnection();
                 string chatuser = chatdata.userchat.Replace("'", "''");
                 string chatbot = chatdata.botchat.Replace("'", "''");
-                string Sql = "exec insertData " + "N'"+ chatuser + "'"+ "," + "N'" + chatbot + "'";
-                await sqlConnection.QueryFirstOrDefaultAsync(Sql);
+                string query = "exec insertChatbot @userchat,@botchat,@own";
+                await sqlConnection.ExecuteAsync(query, new {userchat=chatdata.userchat,botchat=chatdata.botchat,own=chatdata.own});
+                return Ok("success");
+            }
+            catch
+            {
+                return Ok("false");
+            }
+
+        }
+        [HttpDelete]
+        public async Task<IActionResult>Delete (int user)
+        {
+            try
+            {
+                await using SqlConnection sqlConnection = _connectionFactory.CreateConnection();
+                string Sql = "delete chatbot where own = "+user.ToString();
+                await sqlConnection.ExecuteAsync(Sql);
                 return Ok("success");
             }
             catch (Exception ex)

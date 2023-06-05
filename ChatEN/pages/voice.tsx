@@ -40,6 +40,10 @@ function VoiceChat() {
     setIsListening(false);
   };
   const handleClickVoice = () => {
+    let login = sessionStorage.getItem('Login')
+    if(login ===undefined||login==='false'||login===null) {
+      window.location.href='/login'
+    };
     if (isListening === true) {
       handleStop();
     }
@@ -48,7 +52,7 @@ function VoiceChat() {
     }
   }
   const getData = async () => {
-    await axios.get(`${apiURL}Chatbot`)
+    await axios.get(`${apiURL}ChatBot?user=${sessionStorage?.getItem("Login")}`)
       .then((response) => {
         console.clear()
         setChatData(response.data)
@@ -59,7 +63,8 @@ function VoiceChat() {
     const cont: datachat = {
       inde: 1,
       userchat: Uchat,
-      botchat: Bchat
+      botchat: Bchat,
+      own:sessionStorage.getItem('Login')||''
     }
     let urlpost = `${apiURL}chatbot`;
     
@@ -69,7 +74,8 @@ function VoiceChat() {
         const newc: datachat = {
           inde: 1,
           userchat: Uchat,
-          botchat: Bchat
+          botchat: Bchat,
+          own:sessionStorage.getItem('Login')||''
         }
         const newdata = [...chatData, newc]
         setChatData(newdata);
@@ -96,27 +102,26 @@ function VoiceChat() {
   }
   
   const handleClick = () => {
+    
     const rep = recognizedText || '';
-    const newc: datachat = {
+    let newc: datachat = {
       inde: 1,
       userchat: rep,
-      botchat: 'Loading .............'
+      botchat: 'Loading .............',
+      own:sessionStorage.getItem('Login')||''
     }
-    const newdata = [...chatData, newc]
-    setChatData(newdata);
+   
     let reply = addMessage(rep);
-    setChatData(newdata);
     reply.then(result => {
       postData(rep, result.content)
-     
     })
     setRecognizedText(()=>'')
     textareaRef.current && (textareaRef.current.value='')
   }
   const handleDelete = async () => {
-    let urlpost = `${apiURL}delete`;
+    let urlpost = `${apiURL}ChatBot?user=${sessionStorage.getItem('Login')}`;
     console.log(urlpost)
-    await axios.post(urlpost)
+    await axios.delete(urlpost)
     const trash: datachat[] = []
     setChatData(trash);
   }
@@ -154,7 +159,7 @@ function VoiceChat() {
     synth.speak(utterance);
   };
   useEffect(() => {
-    getData()
+    getData();
     let recognition = new window.webkitSpeechRecognition();
     const initializeRecognition = () => {
       recognition.continuous = true;
@@ -187,16 +192,20 @@ function VoiceChat() {
       <div>
       </div>
       <div className="bg-[#444654] ">
-        {chatData.map((item, index) => {
+      {chatData && Array.isArray(chatData) && (
+       <div>
+         {chatData?.map((item, index) => {
           return <RowChat item={item} key={index} />;
         })}
+       </div>
+      )}
       </div>
       <div className=" h-[80px] bg-[#343541] w-screen ">
 
         <div className="flex justify-center w-screen w-1/1 fixed bottom-0">
           <div className="bg-[#444654]  w-2/3  flex relative justify-end items-center rounded-[20px] border-white border-[2px]">
-            <button className="flex justify-center items-center w-[30px] h-[30px] hover:bg-slate-900 rounded mx-[10px]" onClick={handleDelete}><AiOutlineDelete className="text-[30px]" /></button>
-            <textarea
+            <button title='submit' className="flex justify-center items-center w-[30px] h-[30px] hover:bg-slate-900 rounded mx-[10px]" onClick={handleDelete}><AiOutlineDelete className="text-[30px]" /></button>
+            <textarea title='submit'
               className="bg-[#444654] w-full border-[2px] rounded-[5px]"
               name="chatcontent"
               id="chatcontent"
@@ -207,7 +216,7 @@ function VoiceChat() {
               style={{ resize: 'none' }}
     
             />
-            <button className="mx-[10px]" onClick={handleClickVoice} >
+            <button  title='submit' className="mx-[10px]" onClick={handleClickVoice} >
               <div className="inset-0 flex items-center justify-center">
               <BsFillMicFill className={` h-[30px] w-[30px] ${isListening?'animate-pulse text-[red]':'text-[#bab4b4]'}`}/> 
               </div>

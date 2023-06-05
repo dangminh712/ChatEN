@@ -125,9 +125,13 @@ function Discuss(props: Props) {
       <div>
       </div>
       <div className="bg-[#444654] ">
-        {chatData.map((item, index) => {
+      {chatData && Array.isArray(chatData) && (
+       <div>
+         {chatData?.map((item, index) => {
           return <RowChat item={item} key={index} />;
         })}
+       </div>
+      )}
       </div>
       <div className=" h-[80px] bg-[#343541] w-screen ">
 

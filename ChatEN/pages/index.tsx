@@ -20,7 +20,7 @@ export default function Home() {
             <h1 className='text-[38px] font-[700] font-mono'>ChatEN</h1>
             <h2 className='text-[20px] font-[500] font-mono'> Unlock the power of English and embark on a journey of language mastery.</h2>
             <div className="grid grid-cols-3 gap-4 mt-[20px]">
-              <a href= '/' className='h-[25vh] m-[5px] rounded-[20px] my-[30px] bg-[#FFFFFF] border-[1px] border-[#b2b0b0] shadow-md'>
+              <a href= '/chat' className='h-[25vh] m-[5px] rounded-[20px] my-[30px] bg-[#FFFFFF] border-[1px] border-[#b2b0b0] shadow-md'>
                 <div className='flex items-center h-[25vh]'>
                 <img title='img' src='https://cdn-icons-png.flaticon.com/512/1698/1698535.png' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] '>
                     
@@ -62,6 +62,30 @@ export default function Home() {
               <a href= '/flipvocab' className='h-[25vh] m-[5px] rounded-[20px] my-[30px] bg-[#FFFFFF] border-[1px] border-[#b2b0b0] shadow-md'>
                 <div className='flex items-center h-[25vh]'>
                   <img title='sg' src='https://images.squarespace-cdn.com/content/v1/5d577d5ad3fea90001736e05/1618901038734-D9X7HTDS83C9QT6ILWRG/03-VOCAB-MATCH-B.jpg?format=1500w' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] '>
+                  </img>
+                  <div className='flex self-start my-[2.5vh] mx-[4px]'>
+                    <div>
+                    <p className='text-[18px] font-[600]'> FlipVocab </p>
+                    <p className='text-[13px] ml-[5px]'> Master vocabulary through interactive flashcards. </p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <a href= '/login' className='h-[25vh] m-[5px] rounded-[20px] my-[30px] bg-[#FFFFFF] border-[1px] border-[#b2b0b0] shadow-md'>
+                <div className='flex items-center h-[25vh]'>
+                  <img title='sg' src='./login.jpg' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] '>
+                  </img>
+                  <div className='flex self-start my-[2.5vh] mx-[4px]'>
+                    <div>
+                    <p className='text-[18px] font-[600]'> FlipVocab </p>
+                    <p className='text-[13px] ml-[5px]'> Master vocabulary through interactive flashcards. </p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <a href= '/signup' className='h-[25vh] m-[5px] rounded-[20px] my-[30px] bg-[#FFFFFF] border-[1px] border-[#b2b0b0] shadow-md'>
+                <div className='flex items-center h-[25vh]'>
+                  <img title='sg' src='./signup.jpg' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] '>
                   </img>
                   <div className='flex self-start my-[2.5vh] mx-[4px]'>
                     <div>

@@ -22,8 +22,7 @@ function Chatbot(props: Props) {
 
 
   const getData = async () => {
-
-    await axios.get(`${apiURL}ChatBot`)
+    await axios.get(`${apiURL}ChatBot?user=${sessionStorage?.getItem("Login")}`)
       .then((response) => {
         console.clear()
         setChatData(response.data)
@@ -33,17 +32,18 @@ function Chatbot(props: Props) {
     const cont: datachat = {
       inde: 1,
       userchat: Uchat,
-      botchat: Bchat
+      botchat: Bchat,
+      own: sessionStorage.getItem("Login")||'',
     }
-    let urlpost = `${apiURL}chatbot`;
-    console.log(urlpost)
+    let urlpost = `${apiURL}ChatBot?user=${sessionStorage.getItem("Login")}`;
     await axios.post(urlpost,cont)
       .then((response) => {
         console.log(response.data);
         const newc: datachat = {
           inde: 1,
           userchat: Uchat,
-          botchat: Bchat
+          botchat: Bchat,
+          own:sessionStorage.getItem("Login")||''
         }
         const newdata = [...chatData, newc]
         setChatData(newdata);
@@ -72,11 +72,16 @@ function Chatbot(props: Props) {
     }
   }
   const handleClick = () => {
+    let login = sessionStorage.getItem('Login')
+    if(login ===undefined||login==='false'||login===null) {
+      window.location.href='/login'
+    };
     const rep = chatcontent.current?.value?.toString() || '';
     const newc: datachat = {
       inde: 1,
       userchat: rep,
-      botchat: 'Loading .............'
+      botchat: 'Loading .............',
+      own:sessionStorage.getItem('Login')||''
     }
     const newdata = [...chatData, newc]
     setChatData(newdata);
@@ -88,9 +93,8 @@ function Chatbot(props: Props) {
 
   }
   const handleDelete = async () => {
-    let urlpost = `${apiURL}delete`;
-    console.log(urlpost)
-    await axios.post(urlpost)
+    let urlpost = `${apiURL}ChatBot?user=${sessionStorage.getItem('Login')}`;
+    await axios.delete(urlpost)
     const trash: datachat[] = []
     setChatData(trash);
   }
@@ -123,9 +127,13 @@ function Chatbot(props: Props) {
   return (
     <div className="bg-[#242526] min-h-[90vh]">
       <div className="bg-[#242526] ">
-        {chatData.map((item, index) => {
+      {chatData && Array.isArray(chatData) && (
+       <div>
+         {chatData?.map((item, index) => {
           return <RowChat item={item} key={index} />;
         })}
+       </div>
+      )}
       </div>
       <div className=" h-[80px] bg-[#343541] w-screen ">
 
