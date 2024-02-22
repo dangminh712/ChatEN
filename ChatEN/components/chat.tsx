@@ -1,5 +1,5 @@
 import React from "react";
-import { datachat } from "../types/typechat";
+import { datachat } from "../types/typeSystem";
 
 type Props = {
     item: datachat;

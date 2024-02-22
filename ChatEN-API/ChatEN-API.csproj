@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>ChatEN</RootNamespace>
+    <UserSecretsId>14eb1ba4-6225-4c24-8c4b-bfd4f594bc01</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,6 +28,10 @@
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

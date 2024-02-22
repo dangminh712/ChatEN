@@ -1,12 +1,35 @@
-using ChatEN.Services;
+using ChatEN;
+using ChatEN.Data;
+using ChatEN.Services.AccountServices;
+using ChatEN.Services.CourseServices;
+using ChatEN.Services.FavouriteServices;
+using ChatEN.Services.GenericServices;
+using ChatEN.Services.MyFlipServices;
+using ChatEN.Services.SaleServices;
+using ChatEN.Services.VocabularyServices;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Serialization;
 
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DBMS")!);
+});
 
 // Add services to the container.
 
-builder.Services.AddScoped<IService, Service>();
+builder.Services.AddScoped<IAccountServices, AccountServices>();
+builder.Services.AddScoped<IVocabularyServices, VocabularyServices>();
+builder.Services.AddScoped<IFavouriteServices, FavouriteServices>();
+builder.Services.AddScoped<ISaleServices, SaleServices>();
+builder.Services.AddScoped<ICourseServices, CourseServices>();
+builder.Services.AddScoped<IMyFlipServices, MyFlipServices>();
+//builder.Services.AddScoped<IService, Service>();
+
+
+//Add Controller
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

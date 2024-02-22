@@ -1,88 +1,46 @@
-﻿using Dapper;
-using ChatEN.Models;
-using ChatEN.Services;
+﻿using AutoMapper;
+using ChatEN.Models.DTO;
+using ChatEN.Services.VocabularyServices;
 using Microsoft.AspNetCore.Mvc;
-using System.Data.SqlClient;
 
 namespace ChatEN.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VocabularyController : ControllerBase
+    public class Vocabulary : Controller
     {
-        private readonly IService _connectionFactory;
-
-        public VocabularyController(IService connection)
+        private readonly IVocabularyServices _vocabularyServices;
+        private readonly IMapper _mapper;
+        public Vocabulary(IVocabularyServices vocabulary, IMapper mapper)
         {
-            _connectionFactory = connection;
+            _vocabularyServices = vocabulary;
+            _mapper = mapper;
         }
-        [HttpGet]
-        public async Task<IActionResult> GetWord(string amount)
+        [HttpPost("create-new-vocabulary")]
+        public async Task<IActionResult> createNewVocabulary([FromBody] formNewWord word)
         {
-            try
-            {
-                await using SqlConnection sqlConnection = _connectionFactory.CreateConnection();
-                string queryString = "select top "+ amount+" * from vocabulary ORDER BY NEWID()";
-                var result = await sqlConnection.QueryAsync<vocabulary>(queryString);
-                if (result == null) return NotFound();
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-
+            bool result = await _vocabularyServices.CreatNewVocabulary(word);
+            return Ok(result);
         }
-        [HttpGet("Favourite")]
-        public async Task<IActionResult> GetWordInFavourite(string own)
+
+        [HttpGet("get-all-vocabulary")]
+        public async Task<IActionResult> GetAllVocabulry()
         {
-            try
-            {
-                await using SqlConnection sqlConnection = _connectionFactory.CreateConnection();
-                string queryString = "select vocabulary.* from vocabulary,favourite where favourite.wordID=vocabulary.WordId and favourite.own="+own;
-                var result = await sqlConnection.QueryAsync<vocabulary>(queryString);
-                if (result == null) return NotFound();
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-
+            var result = await _vocabularyServices.GetAllVocabulry();
+            return Ok(result);
         }
-        [HttpPost("DeleteInFavorite")]
-        public async Task<IActionResult> DeleteWordInFavourite(string own,string wordid)
+        [HttpGet("get-filter-vocabulary/{amount:int}")]
+        public async Task<IActionResult> GetFilterVocabulry([FromRoute]int amount)
         {
-            try
-            {
-                await using SqlConnection sqlConnection = _connectionFactory.CreateConnection();
-                string queryString = "delete from favourite where own="+own+" and wordid= "+wordid;
-                var result = await sqlConnection.QueryAsync<vocabulary>(queryString);
-                if (result == null) return NotFound();
-                return Ok("success");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-
+            var result = await _vocabularyServices.GetFilterVocabulry(amount);
+            return Ok(result);
         }
-        [HttpPost("AddInFavorite")]
-        public async Task<IActionResult> AddWordInFavourite(string own, string wordid)
+        [HttpGet("search-by-word/{word}")]
+        public async Task<IActionResult> SearchByWord(string word)
         {
-            try
-            {
-                await using SqlConnection sqlConnection = _connectionFactory.CreateConnection();
-                string queryString = "insert into favourite values("+ own + "," + wordid+")";
-                var result = await sqlConnection.QueryAsync<vocabulary>(queryString);
-                if (result == null) return NotFound();
-                return Ok("success");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-
+            var result = await _vocabularyServices.SearchByWord(word);
+            return Ok(result);
         }
+
     }
 }

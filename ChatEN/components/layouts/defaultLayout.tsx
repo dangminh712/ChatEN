@@ -3,7 +3,7 @@ import Header from './header';
 import Footer from './footer';
 const DefaultLayout = ({ children }:any) => {
   return (
-    <div>
+    <div className='bg-[white]'>
         <Header />
       <main>{children}</main>
     </div>

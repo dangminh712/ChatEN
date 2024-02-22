@@ -1,4 +1,4 @@
-import { dataTraCau } from '@/types/typechat'
+import { dataTraCau } from '@/types/typeSystem'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function getDictionary(

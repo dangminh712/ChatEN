@@ -1,4 +1,4 @@
-import { transcripts } from '@/types/typechat';
+import { transcripts } from '@/types/typeSystem';
 import React, { useRef, useState } from 'react';
 import { BiSkipNextCircle, BiSkipPreviousCircle, BiReset, BiPlayCircle } from 'react-icons/bi'
 
