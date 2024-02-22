@@ -13,19 +13,16 @@ ChatEN is an English learning website that helps you improve your English profic
 
 ## Usage
 ### Login/SignIn
-![Screenshot 2023-06-02 153924](https://github.com/dangminh71220002/ChatEN/assets/83014500/d47082eb-b5af-4bd4-9262-66d536e11b6a)
+![image](https://github.com/dangminh712/ChatEN/assets/83014500/73a97dc4-a13c-424f-9b48-f38c7f863747)
 
 ### SignUp
-![Screenshot 2023-06-02 163323](https://github.com/dangminh71220002/ChatEN/assets/83014500/406ec1d2-3ab5-47d1-a754-6eaf7ab1989a)
+![image](https://github.com/dangminh712/ChatEN/assets/83014500/e0cdc002-92d6-4e5d-a1c7-869307cbf447)
 
 ### Home
-![Screenshot 2023-06-02 220429](https://github.com/dangminh71220002/ChatEN/assets/83014500/dbdd74c5-f16a-4fc9-80ae-a5d6809c7431)
+![image](https://github.com/dangminh712/ChatEN/assets/83014500/28ef32af-49a4-4832-bc36-db7251048845)
 
 ### Chat
 ![Screenshot 2023-06-02 163434](https://github.com/dangminh71220002/ChatEN/assets/83014500/987c8d47-35ba-450d-99d4-e88b385782b7)
-
-### Voice
-![Screenshot 2023-06-02 163532](https://github.com/dangminh71220002/ChatEN/assets/83014500/33b1cd47-f263-423b-bfc1-3c1a27edd4d8)
 
 ### SearchWord
 #### Sentence-based word search
