@@ -1,4 +1,4 @@
-# LINK WEB : https://chat-en-deploy-git-main-dangminh71220002.vercel.app/
+![image](https://github.com/dangminh712/ChatEN/assets/83014500/b68923e3-6d87-409b-8b44-cfc62305a8ec)# LINK WEB : https://chat-en-deploy-git-main-dangminh71220002.vercel.app/
 # ChatEN (English)
 
 ChatEN is an English learning website that helps you improve your English proficiency. It offers various features such as text-based communication, voice communication, sentence-based word search, video-based word search, quizzes, and more. The website is developed by Nguyễn Đăng Minh, a student at HCMUS (University of Science, Ho Chi Minh City).
@@ -21,8 +21,9 @@ ChatEN is an English learning website that helps you improve your English profic
 ### Home
 ![image](https://github.com/dangminh712/ChatEN/assets/83014500/28ef32af-49a4-4832-bc36-db7251048845)
 
-### Chat
-![Screenshot 2023-06-02 163434](https://github.com/dangminh71220002/ChatEN/assets/83014500/987c8d47-35ba-450d-99d4-e88b385782b7)
+### Chat-Bot
+![image](https://github.com/dangminh712/ChatEN/assets/83014500/3378ec59-d253-4f88-816d-5433a5667c72)
+
 
 ### SearchWord
 #### Sentence-based word search
@@ -33,6 +34,19 @@ ChatEN is an English learning website that helps you improve your English profic
 
 ### Quiz
 ![Screenshot 2023-06-02 164830](https://github.com/dangminh71220002/ChatEN/assets/83014500/92f97a06-fb71-49e5-bd0e-4b04ae6c76fc)
+
+### Add New Flip
+![image](https://github.com/dangminh712/ChatEN/assets/83014500/db56c597-69a8-429a-b618-040a6e82eec7)
+
+## Admin
+### Dashboard
+![image](https://github.com/dangminh712/ChatEN/assets/83014500/e246037e-25b1-4c25-b7d6-8ef781bfc770)
+### Orders Manage  
+![image](https://github.com/dangminh712/ChatEN/assets/83014500/ee847e1b-730e-476f-99c1-7da83f55db2e)
+### Users Manage
+![image](https://github.com/dangminh712/ChatEN/assets/83014500/3b2cd477-4946-4b03-b17e-6363733c6d56)
+### Books Manage
+![image](https://github.com/dangminh712/ChatEN/assets/83014500/4e9289b7-9d7e-42d1-98d9-ccb2028673d7)
 
 ## Contact
 
